@@ -1,4 +1,7 @@
+import { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
+import { AuthContext } from '../App';
 
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
@@ -9,9 +12,14 @@ import { Button } from '../components/Button';
 
 export function Home() {
     const history = useHistory();
+    const { user, signInWithGoogle} = useContext(AuthContext);
 
-    function navigateToNewRoom() {
-        history.push('/rooms/new')
+    async function randleCreateRoom() {
+      if (!user) {
+          await signInWithGoogle()
+      }
+
+      history.push('/rooms/new');
     }
     
     return (
@@ -24,7 +32,7 @@ export function Home() {
             <main>
                 <div className="main-content">
                 <img src={logoImg} alt="Letmeask"/>
-                <button onClick={navigateToNewRoom} className="create-room">
+                <button onClick={randleCreateRoom} className="create-room">
                     <img src={googleIconImg} alt="Logo do Google"/>
                     Crie sua sala com o Google
                 </button>
