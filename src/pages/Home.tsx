@@ -39,6 +39,11 @@ export function Home() {
             return;
         }
 
+        if (roomRef.val().endedAt) {
+            alert('Room already cloded.');
+            return;
+        }
+
         history.push(`/rooms/${roomCode}`);
     }
     
