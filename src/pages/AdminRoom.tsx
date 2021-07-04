@@ -6,9 +6,9 @@ import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
 
 import { database } from '../services/firebase';
-import { Button } from '../components/Button';
+import { Button } from '../components/Button/index';
 import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode';
+import { RoomCode } from '../components/RoomCode/index';
 // import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 

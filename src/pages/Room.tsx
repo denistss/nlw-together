@@ -5,9 +5,9 @@ import { useTheme } from '../hooks/useTheme';
 import { ThemeContext } from 'styled-components';
 
 import LogoImg from '../assets/images/logo.svg';
-import { Button } from '../components/Button';
+import { Button } from '../components/Button/index';
 import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode';
+import { RoomCode } from '../components/RoomCode/index';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
