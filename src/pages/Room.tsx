@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Switch from 'react-switch';
 import { useTheme } from '../hooks/useTheme';
-import { ThemeContext } from 'styled-components';
+// import { ThemeContext } from 'styled-components';
 
 import LogoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button/index';
