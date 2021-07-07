@@ -1,8 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Switch from 'react-switch';
 import { useTheme } from '../hooks/useTheme';
-// import { ThemeContext } from 'styled-components';
+import { ThemeContext } from 'styled-components';
 
 import LogoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button/index';
@@ -24,8 +24,10 @@ export function Room() {
     const [newQuestion, setNewQuestion] = useState('');
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
-    const { toggleTheme, theme } = useTheme()
-    // const { color } = useContext(ThemeContext)
+    const { theme, toggleTheme } = useTheme()
+    // const { colors, themeTitle } = useContext(ThemeContext)
+
+    console.log(theme)
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
@@ -71,7 +73,7 @@ export function Room() {
                         <RoomCode code={roomId} />
                         <Switch 
                             onChange={toggleTheme}
-                            checked={theme === 'dark'}
+                            checked={theme === 'light'}
                             checkedIcon={false}
                             uncheckedIcon={false}
                             height={10}
