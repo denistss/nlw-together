@@ -1,8 +1,7 @@
-import { FormEvent, useState, useContext } from 'react';
+import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Switch from 'react-switch';
 import { useTheme } from '../hooks/useTheme';
-import { ThemeContext } from 'styled-components';
 
 import LogoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button/index';
@@ -25,9 +24,8 @@ export function Room() {
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
     const { theme, toggleTheme } = useTheme()
-    // const { colors, themeTitle } = useContext(ThemeContext)
 
-    console.log(theme)
+    console.log('Room Theme: ',theme)
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();

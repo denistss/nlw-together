@@ -1,31 +1,35 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { usePersistedState } from '../hooks/usePersistedState';
-import { DefaultTheme } from "styled-components";
 
-import light from '../styles/themes/light';
-import dark from '../styles/themes/dark';
+type Theme = 'light' | 'dark';
 
 type ThemeContextProviderProps = {
   children: ReactNode;
 }
 
 type ThemeContextType = {
-  theme: DefaultTheme;
+  theme: Theme;
   toggleTheme: () => void;
 }
-
 
 export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeContextProvider(props: ThemeContextProviderProps) {
-  const [theme, setCurrentTheme] = usePersistedState('theme', light);
-  console.log(theme)
+  const [currentTheme, setCurrentTheme] = useState<Theme>(() => {
+    const storagedTheme = localStorage.getItem('theme')
+
+    return (storagedTheme ?? 'light') as Theme;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('theme', currentTheme);
+  }, [currentTheme])
+
   function toggleTheme() {
-    setCurrentTheme(theme === 'light' ? dark : light);
+    setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
       {props.children}
     </ThemeContext.Provider>
   )

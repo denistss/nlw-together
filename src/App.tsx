@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { ThemeProvider } from 'styled-components';
-
 import GlobalStyle from './styles/global';
 
 import { Home } from "./pages/Home";
@@ -10,21 +8,13 @@ import { Room } from "./pages/Room";
 import { AdminRoom } from "./pages/AdminRoom";
 
 import { AuthContextProvider } from './contexts/AuthContext';
-import { ThemeContextProvider } from './contexts/ThemeContext01';
-import { useTheme } from './hooks/useTheme';
-
-import light from './styles/themes/light';
-import dark from './styles/themes/dark';
-
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 function App() {
-  const { theme } = useTheme()
 
   return (
     <BrowserRouter>
-        {/* <ThemeProvider theme={theme}> */}
         <ThemeContextProvider>
-
           <AuthContextProvider>
               <GlobalStyle/>
               <Switch>
@@ -35,8 +25,6 @@ function App() {
               </Switch>
           </AuthContextProvider>
         </ThemeContextProvider>
-
-        {/* </ThemeProvider> */}
       </BrowserRouter>
   );
 }
