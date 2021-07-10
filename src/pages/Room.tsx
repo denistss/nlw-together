@@ -71,7 +71,7 @@ export function Room() {
                         <RoomCode code={roomId} />
                         <Switch 
                             onChange={toggleTheme}
-                            checked={theme === 'light'}
+                            checked={theme.themeTitle === 'dark'}
                             checkedIcon={false}
                             uncheckedIcon={false}
                             height={10}

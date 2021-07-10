@@ -9,8 +9,10 @@ import { AdminRoom } from "./pages/AdminRoom";
 
 import { AuthContextProvider } from './contexts/AuthContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
+// import { useTheme } from './hooks/useTheme';
 
 function App() {
+  // const { useTheme } = useTheme();
 
   return (
     <BrowserRouter>
