@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Switch from 'react-switch';
 import { useTheme } from '../hooks/useTheme';
@@ -12,6 +12,7 @@ import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
+import { ThemeContext } from 'styled-components';
 
 type RoomParms = {
     id: string;
@@ -24,8 +25,9 @@ export function Room() {
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
     const { theme, toggleTheme } = useTheme()
+    const { themeTitle } = useContext(ThemeContext);
 
-    console.log('Room Theme: ',theme)
+    console.log('Room themeTitle: ',themeTitle)
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
