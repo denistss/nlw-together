@@ -1,25 +1,23 @@
 import { useHistory, useParams } from 'react-router-dom'
 
-import LogoImg from '../assets/images/logo.svg';
-import deleteImg from '../assets/images/delete.svg';
-import checkImg from '../assets/images/check.svg';
-import answerImg from '../assets/images/answer.svg';
+import LogoImg from '../../assets/images/logo.svg';
+import deleteImg from '../../assets/images/delete.svg';
+import checkImg from '../../assets/images/check.svg';
+import answerImg from '../../assets/images/answer.svg';
 
-import { database } from '../services/firebase';
-import { Button } from '../components/Button/index';
-import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode/index';
-// import { useAuth } from '../hooks/useAuth';
-import { useRoom } from '../hooks/useRoom';
+import { database } from '../../services/firebase';
+import { Button } from '../../components/Button/index';
+import { Question } from '../../components/Question/index';
+import { RoomCode } from '../../components/RoomCode/index';
+import { useRoom } from '../../hooks/useRoom';
 
-import '../styles/room.scss';
+import './room.scss';
 
 type RoomParms = {
     id: string;
 }
 
 export function AdminRoom() {
-    // const { user } = useAuth();
     const history = useHistory();
     const params = useParams<RoomParms>();
     const roomId = params.id;

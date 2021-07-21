@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import GlobalStyle from './styles/global';
 
-import { Home } from "./pages/Home";
-import { NewRoom } from "./pages/NewRoom";
-import { Room } from "./pages/Room";
-import { AdminRoom } from "./pages/AdminRoom";
+import { Home } from "./pages/auth/Home";
+import { NewRoom } from "./pages/auth/NewRoom";
+import { Room } from "./pages/Rooms/Room";
+import { AdminRoom } from "./pages/Rooms/AdminRoom";
 
 import { AuthContextProvider } from './contexts/AuthContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';

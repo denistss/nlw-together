@@ -8,6 +8,6 @@ export default {
         secundary: "#835afd",
 
         background: "#f8f8f8",
-        text: "#333",
+        text: "#FFF",
     },
 };

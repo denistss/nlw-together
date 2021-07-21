@@ -6,10 +6,10 @@ export default {
 
     colors: {
         primary: "#586F7C",
-        secundary: "#000000",
+        secundary: "#586f7c",
 
         background: "#000000",
-        text: "#333",
+        text: "#f4f4f9",
     },
 };
   

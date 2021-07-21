@@ -1,17 +1,17 @@
 import { FormEvent, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Switch from 'react-switch';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
-import LogoImg from '../assets/images/logo.svg';
-import { Button } from '../components/Button/index';
-import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode/index';
-import { useAuth } from '../hooks/useAuth';
-import { useRoom } from '../hooks/useRoom';
-import { database } from '../services/firebase';
+import LogoImg from '../../assets/images/logo.svg';
+import { Button } from '../../components/Button/index';
+import { Question } from '../../components/Question/index';
+import { RoomCode } from '../../components/RoomCode/index';
+import { useAuth } from '../../hooks/useAuth';
+import { useRoom } from '../../hooks/useRoom';
+import { database } from '../../services/firebase';
 
-import '../styles/room.scss';
+import './room.scss';
 import { ThemeContext } from 'styled-components';
 
 type RoomParms = {
