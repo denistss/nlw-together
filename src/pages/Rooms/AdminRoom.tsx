@@ -11,7 +11,10 @@ import { Question } from '../../components/Question/index';
 import { RoomCode } from '../../components/RoomCode/index';
 import { useRoom } from '../../hooks/useRoom';
 
-import './room.scss';
+import Switch from 'react-switch';
+import { useTheme } from '../../hooks/useTheme';
+
+import { Header, Main, QuestionList } from './styles';
 
 type RoomParms = {
     id: string;
@@ -22,6 +25,7 @@ export function AdminRoom() {
     const params = useParams<RoomParms>();
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
+    const { theme, toggleTheme } = useTheme()
 
     async function handleEndRoom(roomId: string) {
         await database.ref(`rooms/${roomId}`).update({
@@ -51,23 +55,34 @@ export function AdminRoom() {
 
     return (
         <div id="page-room">
-            <header>
+            <Header>
                 <div className="content">
                     <img src={LogoImg} alt="Letmask" />
                     <div>
                         <RoomCode code={roomId} />
                         <Button isOutLined onClick={() => handleEndRoom(roomId)}>Encerrar Sala</Button>
+                        <Switch 
+                            onChange={toggleTheme}
+                            checked={theme.themeTitle === 'dark'}
+                            checkedIcon={false}
+                            uncheckedIcon={false}
+                            height={10}
+                            width={40}
+                            handleDiameter={20}
+                            offColor="#FFFCF2"
+                            onColor="#252422"
+                        />
                     </div>
                 </div>
-            </header>
+            </Header>
 
-            <main>
+            <Main>
                 <div className="room-title">
                     <h1>Sala {title}</h1>
                     { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
                 </div>
 
-                <div className="question-list">
+                <QuestionList>
                     {questions.map(question => {
                         return (
                             <Question
@@ -102,8 +117,8 @@ export function AdminRoom() {
                             </Question>
                         )
                     })}
-                </div>
-            </main>
+                </QuestionList>
+            </Main>
         </div>
     );
 }

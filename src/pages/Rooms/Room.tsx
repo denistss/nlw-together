@@ -11,7 +11,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
 
-import './room.scss';
+import { Header, Main, Form, QuestionList } from './styles';
 import { ThemeContext } from 'styled-components';
 
 type RoomParms = {
@@ -26,8 +26,6 @@ export function Room() {
     const {title, questions} = useRoom(roomId);
     const { theme, toggleTheme } = useTheme()
     const { themeTitle } = useContext(ThemeContext);
-
-    console.log('Room themeTitle: ',themeTitle)
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
@@ -65,11 +63,11 @@ export function Room() {
     }
 
     return (
-        <div id="page-room">
-            <header>
+        <>
+            <Header>
                 <div className="content">
                     <img src={LogoImg} alt="Letmask" />
-                    <div className=''>
+                    <div>
                         <RoomCode code={roomId} />
                         <Switch 
                             onChange={toggleTheme}
@@ -84,15 +82,15 @@ export function Room() {
                         />
                     </div>
                 </div>
-            </header>
+            </Header>
 
-            <main>
+            <Main>
                 <div className="room-title">
                     <h1>Sala {title}</h1>
                     { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
                 </div>
 
-                <form onSubmit={handleSendQuestion}>
+                <Form onSubmit={handleSendQuestion}>
                     <textarea
                         placeholder="O que você quer perguntar?"
                         onChange={event => setNewQuestion(event.target.value)}
@@ -110,9 +108,9 @@ export function Room() {
                         ) }
                         <Button type="submit" disabled={!user} >Enviar pergunta</Button>
                     </div>
-                </form>
+                </Form>
 
-                <div className="question-list">
+                <QuestionList>
                     {questions.map(question => {
                         return (
                             <Question
@@ -138,8 +136,8 @@ export function Room() {
                             </Question>
                         );
                     })}
-                </div>
-            </main>
-        </div>
+                </QuestionList>
+            </Main>
+        </>
     );
 }

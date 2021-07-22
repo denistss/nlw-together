@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
-import './auth.scss';
+import { PageAuthContainer, MainContent } from './styles';
 import { useState } from 'react';
 import { Button } from '../../components/Button/index';
 import { database } from '../../services/firebase';
@@ -33,14 +33,14 @@ export function NewRoom() {
     }
 
     return (
-        <div id="page-auth">
+        <PageAuthContainer>
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
                 <p>Tire as dúvidas da sua audiência em tempo-real</p>
             </aside>
             <main>
-                <div className="main-content">
+                <MainContent>
                 <img src={logoImg} alt="Letmeask"/>
                 <h1>{user?.name}</h1>
                 <h2>Crie uma nova sala</h2>
@@ -58,8 +58,8 @@ export function NewRoom() {
                 <p>
                     Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link>
                 </p>
-                </div>
+                </MainContent>
             </main>
-        </div>
+        </PageAuthContainer>
     )
 }

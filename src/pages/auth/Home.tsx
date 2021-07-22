@@ -8,7 +8,7 @@ import { database } from '../../services/firebase';
 import { Button } from '../../components/Button/index';
 import { useAuth } from '../../hooks/useAuth';
 
-import './auth.scss';
+import {PageAuthContainer, MainContent, CreateRoomButton, Separator } from './styles';
 import { FormEvent } from 'react';
 import { useState } from 'react';
 
@@ -48,20 +48,20 @@ export function Home() {
     }
     
     return (
-        <div id="page-auth">
+        <PageAuthContainer>
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
                 <p>Tire as dúvidas da sua audiência em tempo-real</p>
             </aside>
             <main>
-                <div className="main-content">
+                <MainContent className="main-content">
                 <img src={logoImg} alt="Letmeask"/>
-                <button onClick={randleCreateRoom} className="create-room">
+                <CreateRoomButton onClick={randleCreateRoom}>
                     <img src={googleIconImg} alt="Logo do Google"/>
                     Crie sua sala com o Google
-                </button>
-                <div className="separator">ou entre em uma sala</div>
+                </CreateRoomButton>
+                <Separator>ou entre em uma sala</Separator>
                 <form onSubmit={handleJoinRoom}>
                     <input
                         type="text"
@@ -73,8 +73,8 @@ export function Home() {
                         Entrar na sala
                     </Button>
                 </form>
-                </div>
+                </MainContent>
             </main>
-        </div>
+        </PageAuthContainer>
     )
 }
