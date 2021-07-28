@@ -8,7 +8,7 @@ import { database } from '../../services/firebase';
 import { Button } from '../../components/Button/index';
 import { useAuth } from '../../hooks/useAuth';
 
-import {PageAuthContainer, MainContent, CreateRoomButton, Separator } from './styles';
+import { PageAuthContainer, MainContent, CreateRoomButton, Separator } from './styles';
 import { FormEvent } from 'react';
 import { useState } from 'react';
 

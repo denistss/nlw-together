@@ -6,14 +6,14 @@ export const RoomContainer = styled.div`
         border-radius: 8px;
         overflow: hidden;
 
-        background: ${props => props.theme.colors.text};
-        border: 1px solid ${props => props.theme.colors.secundary};
+        background: ${props => props.theme.colors.text_primary};
+        border: 1px solid ${props => props.theme.colors.button_background};
         cursor: pointer;
 
         display: flex;
 
         div {
-            background: ${props => props.theme.colors.secundary};
+            background: ${props => props.theme.colors.button_background};
             padding: 0 12px;
             display: flex;
             justify-content: center;

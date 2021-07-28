@@ -5,8 +5,8 @@ export const Container = styled.div`
         height: 50px;
         border-radius: 8px;
         font-weight: 500;
-        background: ${props => props.theme.colors.secundary};
-        color: ${props => props.theme.colors.text};
+        background: ${props => props.theme.colors.button_background};
+        color: ${props => props.theme.colors.input_text};
         padding:0 32px;
 
         display: flex;
@@ -23,9 +23,9 @@ export const Container = styled.div`
         }
 
         &.outlined {
-            background: #FFF;
-            border: 1px solid ${props => props.theme.colors.secundary};
-            color: ${props => props.theme.colors.secundary};
+            background: ${props => props.theme.colors.text_primary};
+            border: 1px solid ${props => props.theme.colors.button_background};
+            color: #000;
         }
 
         &:not(:disabled):hover {

@@ -7,8 +7,8 @@ export const PageAuthContainer = styled.div`
 
     aside {
         flex: 7;
-        background: #835afd;
-        color: #FFF;
+        background: ${props => props.theme.colors.secundary};
+        color: ${props => props.theme.colors.input_text};
 
         display: flex;
         flex-direction: column;
@@ -30,7 +30,7 @@ export const PageAuthContainer = styled.div`
             font-size: 24px;
             line-height: 32px;
             margin-top: 16px;
-            color: #f8f8f8;
+            color: ${props => props.theme.colors.input_text};
         }
     }
 
@@ -69,8 +69,8 @@ export const MainContent = styled.div`
             height: 50px;
             border-radius: 8px;
             padding: 0 16px;
-            background: #FFF;
-            border: 1px solid #a8a8b3
+            background: ${props => props.theme.colors.input_background};
+            border: 1px solid ${props => props.theme.colors.input_border};
         }
 
         button {
@@ -84,11 +84,11 @@ export const MainContent = styled.div`
 
     p {
         font-size: 14px;
-        color: #737380;
+        color: ${props => props.theme.colors.input_text};
         margin-top: 16px;
 
         a {
-            color: #e559f9;
+            color: ${props => props.theme.colors.input_text};
         }
     }
 `;
@@ -98,7 +98,7 @@ export const CreateRoomButton = styled.button`
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
-    background: #ea4335;
+    background: ${props => props.theme.colors.login_btn};
     color: #FFF;
 
     display: flex;
@@ -121,7 +121,7 @@ export const CreateRoomButton = styled.button`
 
 export const Separator = styled.div`
     font-size: 14px;
-    color: #a8a8b3;
+    color: ${props => props.theme.colors.separator};
 
     margin: 32px 0;
     display: flex;
@@ -131,7 +131,7 @@ export const Separator = styled.div`
         content: '';
         flex: 1;
         height: 1px;
-        background: #a8a8b3;
+        background: ${props => props.theme.colors.separator};
         margin-right: 16px;
     }
 
@@ -139,7 +139,7 @@ export const Separator = styled.div`
         content: '';
         flex: 1;
         height: 1px;
-        background: #a8a8b3;
+        background: ${props => props.theme.colors.separator};
         margin-left: 16px;
     }
 `;

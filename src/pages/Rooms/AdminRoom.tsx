@@ -69,8 +69,8 @@ export function AdminRoom() {
                             height={10}
                             width={40}
                             handleDiameter={20}
-                            offColor="#FFFCF2"
-                            onColor="#252422"
+                            offColor="#835afd"
+                            onColor="#A3A3A3"
                         />
                     </div>
                 </div>

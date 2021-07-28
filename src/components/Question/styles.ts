@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const QuestionContainer = styled.div`
 
-    background: ${props => props.theme.colors.text};
+    background: ${props => props.theme.colors.input_background};
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     padding: 24px;
@@ -12,20 +12,20 @@ export const QuestionContainer = styled.div`
     }
 
     &.highlighted {
-        background:${props => props.theme.colors.background};
-        border: 1px solid ${props => props.theme.colors.secundary};
+        background: ${props => props.theme.colors.highlighted};
+        border: 3px solid ${props => props.theme.colors.button_background};
 
         footer .user-info span {
-            color: ${props => props.theme.colors.primary};
+            color: #737380;
         }
     }
 
     &.answered {
-        background: ${props => props.theme.colors.text};
+        background: ${props => props.theme.colors.answered};
     }
 
     p {
-        color: ${props => props.theme.colors.secundary};
+        color: ${props => props.theme.colors.color};
     }
 
     footer {
@@ -65,7 +65,7 @@ export const QuestionContainer = styled.div`
             &.like-button {
                 display: flex;
                 align-items: flex-end;
-                color: ${props => props.theme.colors.text};
+                color: ${props => props.theme.colors.liked};
                 gap: 8px;
 
                 &.liked {
