@@ -43,6 +43,27 @@ export const PageAuthContainer = styled.div`
         align-items: center;
         justify-content: center;
     }
+
+    @media(max-width: 850px) {
+        flex-direction: column;
+    
+        aside {
+          flex: 1;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 3rem;
+          padding: 3rem 2rem;
+    
+          img {
+            height: 10rem;
+    
+            @media(max-width: 640px) {
+              display: none;
+            }
+          }
+        }
+      }
 `;
 
 export const MainContent = styled.div`
@@ -58,10 +79,18 @@ export const MainContent = styled.div`
         align-self: center;
     }
 
+    h1 {
+        font-size: 30px;
+        margin: 30px 0 0;
+        font-family: 'Poppins', sans-serif;
+        color: ${props => props.theme.colors.secundary};
+    }
+
     h2 {
         font-size: 24px;
         margin: 64px 0 24px;
         font-family: 'Poppins', sans-serif;
+        color: ${props => props.theme.colors.secundary};
     }
 
     form {
@@ -84,11 +113,11 @@ export const MainContent = styled.div`
 
     p {
         font-size: 14px;
-        color: ${props => props.theme.colors.input_text};
+        color: ${props => props.theme.colors.text};
         margin-top: 16px;
 
         a {
-            color: ${props => props.theme.colors.input_text};
+            color: ${props => props.theme.colors.text};
         }
     }
 `;

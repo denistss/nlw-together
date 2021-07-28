@@ -14,7 +14,7 @@ export default {
         input_text: "#fefefe",
         liked: "#737380",
         color: "#29292e",
-        text: "#FFF",
+        text: "#835afd",
         text_title: "#000000",
         text_primary: "#f8f8f8",
         text_secundary: "#737380",
