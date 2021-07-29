@@ -15,6 +15,7 @@ import Switch from 'react-switch';
 import { useTheme } from '../../hooks/useTheme';
 
 import { Header, Main, QuestionList } from './styles';
+import { useAuth } from '../../hooks/useAuth';
 
 type RoomParms = {
     id: string;
@@ -25,7 +26,17 @@ export function AdminRoom() {
     const params = useParams<RoomParms>();
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
-    const { theme, toggleTheme } = useTheme()
+    const {theme, toggleTheme} = useTheme()
+    const {signOutWithGoogle} = useAuth()
+
+    async function handleGoToRoom(roomId: string) {
+        history.push(`/rooms/${roomId}`);
+    }
+
+    async function handleLogOut() {
+        await signOutWithGoogle()
+        history.push('/');
+    }
 
     async function handleEndRoom(roomId: string) {
         await database.ref(`rooms/${roomId}`).update({
@@ -59,8 +70,10 @@ export function AdminRoom() {
                 <div className="content">
                     <img src={LogoImg} alt="Letmask" />
                     <div>
+                        <Button isOutLined onClick={() => handleGoToRoom(roomId)}>Room</Button>
                         <RoomCode code={roomId} />
                         <Button isOutLined onClick={() => handleEndRoom(roomId)}>Encerrar Sala</Button>
+                        <Button isOutLined onClick={() => handleLogOut()}>Log Out</Button>
                         <Switch 
                             onChange={toggleTheme}
                             checked={theme.themeTitle === 'dark'}

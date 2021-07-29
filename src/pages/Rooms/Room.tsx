@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Switch from 'react-switch';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -18,12 +18,29 @@ type RoomParms = {
 }
 
 export function Room() {
-    const { user } = useAuth();
+    const history = useHistory();
+    const { user, signInWithGoogle, signOutWithGoogle } = useAuth();
     const params = useParams<RoomParms>();
     const [newQuestion, setNewQuestion] = useState('');
     const roomId = params.id;
     const {title, questions} = useRoom(roomId);
     const { theme, toggleTheme } = useTheme()
+
+    async function randleSignIn() {
+        if (!user) {
+            await signInWithGoogle()
+        }
+    }
+
+    async function handleGoToAdmin(roomId: string) {
+        history.push(`/admin/rooms/${roomId}`);
+    }
+
+    async function handleLogOut() {
+        
+        await signOutWithGoogle()
+        history.push('/');
+    }
 
     async function handleSendQuestion(event: FormEvent) {
         event.preventDefault();
@@ -66,7 +83,9 @@ export function Room() {
                 <div className="content">
                     <img src={LogoImg} alt="Letmask" />
                     <div>
+                        <Button isOutLined onClick={() => handleGoToAdmin(roomId)}>Page Admin</Button>
                         <RoomCode code={roomId} />
+                        <Button isOutLined onClick={() => handleLogOut()}>Log off</Button>
                         <Switch 
                             onChange={toggleTheme}
                             checked={theme.themeTitle === 'dark'}
@@ -102,7 +121,7 @@ export function Room() {
                                 <span>{user.name}</span>
                             </div>
                         ) : (
-                            <span>Para enviar uma pergunta, <button>faça seu login</button>.</span>
+                            <span>Para enviar uma pergunta, <button onClick={randleSignIn}>faça seu login</button>.</span>
                         ) }
                         <Button type="submit" disabled={!user} >Enviar pergunta</Button>
                     </div>

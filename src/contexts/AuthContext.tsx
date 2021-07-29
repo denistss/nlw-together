@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { createContext, ReactNode } from "react";
 import { auth } from "../services/firebase";
+import { useTheme } from "../hooks/useTheme";
 
 type User = {
     id: string,
@@ -13,6 +14,7 @@ type User = {
 type AuthContextType = {
     user: User | undefined;
     signInWithGoogle: () => Promise<void>;
+    signOutWithGoogle: () => Promise<void>;
 }
 
 type AuthContextProviderProps = {
@@ -22,7 +24,7 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
-
+    
     const [user, setUser] = useState<User>();
 
     useEffect(() => {
@@ -68,9 +70,14 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
     }
   }
 
+  async function signOutWithGoogle() {
+
+    setUser(undefined)
+    await auth.signOut()
+  }
 
     return (
-        <AuthContext.Provider value={{user, signInWithGoogle}}>
+        <AuthContext.Provider value={{user, signInWithGoogle, signOutWithGoogle}}>
             {props.children}
         </AuthContext.Provider>
     );
