@@ -69,10 +69,10 @@ export const QuestionContainer = styled.div`
                 gap: 8px;
 
                 &.liked {
-                    color: ${props => props.theme.colors.secundary};
+                    color: ${props => props.theme.colors.answered};
 
                     svg path {
-                        stroke: ${props => props.theme.colors.secundary};
+                        stroke: ${props => props.theme.colors.answered};
                     }
                 }
             }
