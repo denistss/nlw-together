@@ -49,11 +49,22 @@ export const PageAuthContainer = styled.div`
     
         aside {
           flex: 1;
-          flex-direction: row;
+          flex-direction: column;
           align-items: center;
-          justify-content: flex-start;
+          justify-content: center;
           gap: 3rem;
           padding: 3rem 2rem;
+
+          strong {
+            line-height: 35px;
+            margin-top: 16px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 32px;
+            margin-top: 16px;
+        }
     
           img {
             height: 10rem;

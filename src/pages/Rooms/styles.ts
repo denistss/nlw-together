@@ -24,6 +24,22 @@ export const Header = styled.header`
             }
         }
     }
+
+    @media(max-width: 650px) {
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+    
+            }
+        }
+    }
 `;
 
 export const Main = styled.main`
