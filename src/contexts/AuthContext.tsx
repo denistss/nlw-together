@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { createContext, ReactNode } from "react";
 import { auth } from "../services/firebase";
-import { useTheme } from "../hooks/useTheme";
 
 type User = {
     id: string,
