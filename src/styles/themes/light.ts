@@ -12,7 +12,7 @@ export default {
         input_border: "#a8a8b3",
         input_background: "#f4f0ff",
         input_text: "#fefefe",
-        liked: "#737380",
+        liked: "#835afd",
         color: "#29292e",
         text: "#835afd",
         text_title: "#000000",
