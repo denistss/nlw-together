@@ -45,17 +45,17 @@ A aplicação estará disponível no seu browser pela rota [http://localhost:300
 
 <h3 align="center">
   <img alt="theme" 
-    src="../src/screens/gif.gif?raw=true" width="1000px"/>
+    src="src/screens/gif.gif?raw=true" width="1000px"/>
 </h3>
 <h3 align="center">
   <img alt="theme" 
-    src="../src/screens/foto01.png?raw=true" width="1000px"/>
+    src="src/screens/foto01.png?raw=true" width="1000px"/>
 </h3>
 <h3 align="center">
   <img alt="theme" 
-    src="../src/screens/foto02.png?raw=true" width="1000px"/>
+    src="src/screens/foto02.png?raw=true" width="1000px"/>
 </h3>
 <h3 align="center">
   <img alt="theme" 
-    src="../src/screens/foto02.png?raw=true" width="1000px"/>
+    src="src/screens/foto02.png?raw=true" width="1000px"/>
 </h3>
